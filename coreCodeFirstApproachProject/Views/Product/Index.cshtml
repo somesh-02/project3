@@ -1,0 +1,43 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Products</title>
+</head>
+<body>
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                @foreach (var item in Model)
+                {
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            @*<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>*@
+                            <img src="@item.Image" width="100%" height="225" />
+                            <div class="card-body">
+                                <p class="card-text">@item.Name</p>
+                                @*<p>Brand : @ViewBag.BrandName.brandName</p>
+                            <p>Category : @ViewBag.CategoryName.categoryName</p>*@
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" asp-controller="Cart" asp-action="ViewDetails" asp-route-id="@item.ProductId">View Details</button>
+                                        <a asp-controller="Cart" asp-action="Buy" asp-route-id="@item.ProductId" class="btn btn-sm btn-outline-secondary">Add to Cart</a>
+                                    </div>
+                                    <small class="text-body-secondary">Quantity : @item.AvailableQuantity </small>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

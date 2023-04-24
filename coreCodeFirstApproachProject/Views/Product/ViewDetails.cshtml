@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewDetails</title>
+</head>
+<body>
+    <table>
+        <tr>
+            
+                <td> <img src="@Model.Image" width="100%" height="225" /></td>
+                <td><h2>@Model.Name</h2></td>
+                <td><h2>Price : </h2>@Model.Price</td>
+                <td><h2>Available Quantity : </h2>@Model.AvailableQuantity</td>
+        </tr>
+    </table>
+</body>
+</html>
