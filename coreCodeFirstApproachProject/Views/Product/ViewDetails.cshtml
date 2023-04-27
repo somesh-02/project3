@@ -11,14 +11,23 @@
     <title>ViewDetails</title>
 </head>
 <body>
-    <table>
+    <table style="align-content:center;" border="1" cellpadding="10px" cellspacing="0">
+         @foreach (var item in Model)
+                {
         <tr>
-            
-                <td> <img src="@Model.Image" width="100%" height="225" /></td>
-                <td><h2>@Model.Name</h2></td>
-                <td><h2>Price : </h2>@Model.Price</td>
-                <td><h2>Available Quantity : </h2>@Model.AvailableQuantity</td>
+
+            <td> <img src="@item.Image" width="100%" height="225" /></td>
         </tr>
+            <tr><td><strong>@item.Name</strong></td></tr>
+            <tr><td><strong>Brand : </strong>@item.BrandName</td></tr>
+            <tr><td><strong>Category : </strong>@item.CategoryName</td></tr>
+            <tr><td><strong>Price : </strong>@item.Price</td></tr>
+            <tr> <td><strong>Available Quantity : </strong>@item.Quantity</td></tr>
+                }
     </table>
+    <br />
+    <br />
+    <a class="btn btn-outline-dark" asp-controller="Product" asp-action="Index">Continue Shopping</a>
+    <a asp-controller="Cart" asp-action="Buy" asp-route-id="@Model[0].Id" class="btn btn-outline-dark">Add to Cart</a>
 </body>
 </html>

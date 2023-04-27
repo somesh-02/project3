@@ -1,4 +1,5 @@
-﻿@{
+﻿@model coreCodeFirstApproachProject.Models.Address
+@{
     Layout = "_Layout";
 }
 
@@ -207,81 +208,70 @@
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Billing address</h4>
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate asp-controller="Cart" asp-action="MakePayment">
                         <div class="row g-3">
-                            <div class="col-sm-6">
-                                <label for="firstName" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Valid first name is required.
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label for="lastName" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                                <div class="invalid-feedback">
-                                    Valid last name is required.
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label asp-for="UserName" class="control-label">User Name</label>
+                                    <input asp-for="UserName" class="form-control" />
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="username" class="form-label">Username</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text"></span>
-                                    <input type="text" class="form-control" id="username" placeholder="Username" required>
-                                    <div class="invalid-feedback">
-                                        Your username is required.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                <label asp-for="Email" class="control-label">Email</label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
                                 <div class="invalid-feedback">
                                     Please enter a valid email address for shipping updates.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+                                <label asp-for="Phone" class="control-label">Mobile Number</label>
+                                <input asp-for="Phone" class="form-control" />
+                                <span asp-validation-for="Phone" class="text-danger"></span>
                                 <div class="invalid-feedback">
-                                    Please enter your shipping address.
+                                    Please enter a valid Mobile Number for shipping updates.
                                 </div>
                             </div>
 
                             <div class="col-12">
-                                <label for="address2" class="form-label">Address 2 <span class="text-body-secondary">(Optional)</span></label>
-                                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                                <label asp-for="Addre" class="control-label">Address :</label>
+                                <input asp-for="Addre" class="form-control" />
+                                <span asp-validation-for="Addre" class="text-danger"></span>
+                                <div class="invalid-feedback">
+                                    Please enter your shipping address.
+                                </div>
                             </div>
-
                             <div class="col-md-5">
-                                <label for="country" class="form-label">Country</label>
-                                <select class="form-select" id="country" required>
+                                <label asp-for="Country" class="control-label">Country :</label>
+                                <select asp-for="Country" class="form-select" id="country" required>
                                     <option value="">Choose...</option>
-                                    <option>United States</option>
+                                    <option>India</option>
                                 </select>
+                                <span asp-validation-for="Country" class="text-danger"></span>
                                 <div class="invalid-feedback">
                                     Please select a valid country.
                                 </div>
                             </div>
 
                             <div class="col-md-4">
-                                <label for="state" class="form-label">State</label>
-                                <select class="form-select" id="state" required>
+                                <label asp-for="State" class="control-label">State :</label>
+                                <select asp-for="State" class="form-select" id="state" required>
                                     <option value="">Choose...</option>
-                                    <option>California</option>
+                                    <option>Telangana</option>
                                 </select>
+                                <span asp-validation-for="State" class="text-danger"></span>
                                 <div class="invalid-feedback">
                                     Please provide a valid state.
                                 </div>
                             </div>
 
                             <div class="col-md-3">
-                                <label for="zip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="zip" placeholder="" required>
+                                <label asp-for="Zip" class="control-label">Zip :</label>
+                                <input asp-for="Zip" class="form-control" />
+                                <span asp-validation-for="Zip" class="text-danger"></span>
                                 <div class="invalid-feedback">
                                     Zip code required.
                                 </div>
@@ -356,7 +346,7 @@
 
                         <hr class="my-4">
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+                        <input class="w-100 btn btn-primary btn-lg" asp-controller="Cart" asp-action="MakePayment" type="submit" value="Continue to CheckOut">
                     </form>
                 </div>
             </div>

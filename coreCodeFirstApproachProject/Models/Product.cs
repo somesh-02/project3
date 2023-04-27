@@ -11,6 +11,7 @@
         public int BrandId { get; set; }
         public DateTime ProductAddedDate { get; set; }
 
-
+        public Category Category { get; set; }
+        public Brand Brand { get; set; }
     }
 }

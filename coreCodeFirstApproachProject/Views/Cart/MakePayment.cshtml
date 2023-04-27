@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MakePayment</title>
+</head>
+<body>
+    <h2 style="text-align:center;">Payment Page</h2>
+    <h3>Delivery Address</h3>
+    <table cellpadding="10px" cellspacing="0">
+        <tr><td><strong>C/O : </strong>@ViewBag.address.UserName</td></tr>
+        <tr><td><strong>Email Id : </strong>@ViewBag.address.Email</td></tr>
+        <tr><td><strong>Mobile Number : </strong>@ViewBag.address.Phone</td></tr>
+        <tr><td><strong>Address : </strong>@ViewBag.address.Addre</td></tr>
+        <tr><td><strong>Country : </strong>@ViewBag.address.Country</td></tr>
+        <tr><td><strong>State : </strong>@ViewBag.address.State</td></tr>
+        <tr><td><strong>Zip : </strong>@ViewBag.address.Zip</td></tr>
+    </table>
+    <h1>Total amount to be paid is : @ViewBag.total</h1>
+    <a asp-asp-controller="Cart" asp-action="Payment" class="btn btn-outline-primary">Continue With Payment</a>
+
+</body>
+</html>

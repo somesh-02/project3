@@ -2,6 +2,7 @@
 using coreCodeFirstApproachProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
 
@@ -78,6 +79,24 @@ namespace coreCodeFirstApproachProject.Controllers
             ViewBag.total = cart.Sum(item => item.Product.Price * item.Quantity);
             return View();
         }
+        public IActionResult MakePayment()
+        {
+            return View();
+        }
+        [HttpPost]
+        [Authorize(Roles ="user")]
+        public IActionResult MakePayment(Address addr) 
+        {
+            _context.Addresses.Add(addr);
+            _context.SaveChanges();
+            ViewBag.address = addr;
+            List<Item> cart = SessionHelper.getObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+            ViewBag.count = cart.Count();
+            ViewBag.cart = cart;
+            ViewBag.total = cart.Sum(item => item.Product.Price * item.Quantity);
+            return View(); 
+        }
+
         [Authorize(Roles = "user")]
         public IActionResult EmptyCart()
         {
@@ -90,6 +109,12 @@ namespace coreCodeFirstApproachProject.Controllers
             {
                 cart.Clear();
             }
+            return View();
+        }
+        
+        public IActionResult Payment()
+        {
+
             return View();
         }
     }

@@ -44,6 +44,7 @@ namespace coreCodeFirstApproachProject.Controllers
             }
             return View();
         }
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)
         {
@@ -75,10 +76,11 @@ namespace coreCodeFirstApproachProject.Controllers
             }
             return View();
         }
+        [AllowAnonymous]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login");
+            return RedirectToAction("Index","Home");
         }
         [Authorize(Roles ="user")]
         public IActionResult UserWelcomePage()
