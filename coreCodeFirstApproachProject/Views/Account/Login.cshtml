@@ -12,9 +12,7 @@
     <title>Login</title>
 </head>
 <body>
-
-<h4>User1</h4>
-<hr />
+    <h2 style="text-align:center;background-color:antiquewhite;padding:5px;">Login</h2>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -28,17 +26,12 @@
                 <label asp-for="password" class="control-label"></label>
                 <input asp-for="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
-            </div>
+            </div><br />
             <div class="form-group">
                 <input type="submit" value="Login" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 </body>
 </html>

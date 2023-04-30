@@ -40,7 +40,7 @@ namespace coreCodeFirstApproachProject.Controllers
             ClaimsPrincipal claimUser = HttpContext.User;
             if(claimUser.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Product");
             }
             return View();
         }

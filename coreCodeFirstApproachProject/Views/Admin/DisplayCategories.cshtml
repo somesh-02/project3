@@ -12,9 +12,7 @@
     <title>DisplayCategories</title>
 </head>
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    <h2 style="text-align:center;background-color:antiquewhite;padding:5px;">Categories</h2>
 <table class="table">
     <thead>
         <tr>
@@ -43,9 +41,9 @@
                 @Html.DisplayFor(modelItem => item.CategoryAddedDate)
             </td>
             <td>
-                <a asp-action="EditCategory" asp-route-id="@item.CategoryId">Edit</a> |
-                <a asp-action="CategoryDetails" asp-route-id="@item.CategoryId">Details</a> |
-                <a asp-action="DeleteCategory" asp-route-id="@item.CategoryId">Delete</a>
+                        <a asp-action="EditCategory" style="margin-right:5px;" class="btn btn-outline-secondary" asp-route-id="@item.CategoryId">Edit</a> 
+                        <a asp-action="CategoryDetails" style="margin-right:5px;" class="btn btn-outline-info" asp-route-id="@item.CategoryId">Details</a>
+                        <a asp-action="DeleteCategory" style="margin-left:8px;margin-top:5px" class="btn btn-outline-danger" asp-route-id="@item.CategoryId">Delete</a>
             </td>
         </tr>
 }

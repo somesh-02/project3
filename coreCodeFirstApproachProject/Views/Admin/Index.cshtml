@@ -12,9 +12,7 @@
     <title>Index</title>
 </head>
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+    <h2 style="text-align:center;background-color:antiquewhite;padding:5px;">Registered Users</h2>
 <table class="table">
     <thead>
         <tr>
@@ -55,8 +53,8 @@
                 @Html.DisplayFor(modelItem => item.Role)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+                        <a asp-action="Details" style="margin-right:5px;" class="btn btn-outline-info" asp-route-id="@item.UserId">Details</a>
+                        <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.UserId">Delete</a>
             </td>
         </tr>
 }

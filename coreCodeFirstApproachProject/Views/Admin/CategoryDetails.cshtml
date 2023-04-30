@@ -9,10 +9,10 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>CategoryDetails</title>
+    <title>Category Details</title>
 </head>
 <body>
-
+    <h2 style="text-align:center;background-color:antiquewhite;padding:5px;">Details</h2>
 <div>
     <h4>Category</h4>
     <hr />
@@ -38,8 +38,8 @@
     </dl>
 </div>
 <div>
-    <a asp-action="EditCategory" asp-route-id="@Model?.CategoryId">Edit</a> |
-        <a asp-action="DisplayCategories">Back to List</a>
+        <a asp-action="EditCategory" style="margin-right:5px;" class="btn btn-outline-secondary" asp-route-id="@Model?.CategoryId">Edit</a> 
+        <a asp-action="DisplayCategories" class="btn btn-outline-success">Back to List</a>
 </div>
 </body>
 </html>

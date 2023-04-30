@@ -12,9 +12,7 @@
     <title>DisplayBrands</title>
 </head>
 <body>
-<p>
-    <a asp-action="CreateBrand">Create New Brand</a>
-</p>
+    <h2 style="text-align:center;background-color:antiquewhite;padding:5px;">Brands</h2>
 <table class="table">
     <thead>
         <tr>
@@ -43,9 +41,9 @@
                 @Html.DisplayFor(modelItem => item.BrandAddedDate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.BrandId">Edit</a> |
-                <a asp-action="BrandDetails" asp-route-id="@item.BrandId">Details</a> |
-                <a asp-action="BrandDelete" asp-route-id="@item.BrandId">Delete</a>
+                <a asp-action="Edit" style="margin-right:5px;" class="btn btn-outline-secondary" asp-route-id="@item.BrandId">Edit</a> 
+                <a asp-action="BrandDetails" style="margin-right:5px;" class="btn btn-outline-info" asp-route-id="@item.BrandId">Details</a> 
+                <a asp-action="BrandDelete" class="btn btn-outline-danger" asp-route-id="@item.BrandId">Delete</a>
             </td>
         </tr>
 }

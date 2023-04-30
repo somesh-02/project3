@@ -9,10 +9,10 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>BrandDetails</title>
+    <title>Brand Details</title>
 </head>
 <body>
-
+    <h2 style="text-align:center;background-color:antiquewhite;padding:5px;">Details</h2>
 <div>
     <h4>Brand</h4>
     <hr />
@@ -38,8 +38,8 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.BrandId">Edit</a> |
-    <a asp-action="DisplayBrands">Back to List</a>
+        <a asp-action="Edit" style="margin-right:5px;" class="btn btn-outline-primary" asp-route-id="@Model?.BrandId">Edit</a> 
+        <a asp-action="DisplayBrands" class="btn btn-outline-info">Back to List</a>
 </div>
 </body>
 </html>

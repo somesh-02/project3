@@ -20,9 +20,16 @@ namespace coreCodeFirstApproachProject.Controllers
         public IActionResult Index()
         {
             var cart = SessionHelper.getObjectFromJson<List<Item>>(HttpContext.Session, "cart");
-            ViewBag.cart = cart;
-            ViewBag.total = cart.Sum(item => item.Product.Price * item.Quantity);
-            return View();
+            if(cart.IsNullOrEmpty())
+            {
+                return RedirectToAction("EmptyCart");
+            }
+            else
+            {
+                ViewBag.cart = cart;
+                ViewBag.total = cart.Sum(item => item.Product.Price * item.Quantity);
+                return View();
+            }
         }
         public IActionResult Buy(int id)
         {
@@ -114,7 +121,12 @@ namespace coreCodeFirstApproachProject.Controllers
         
         public IActionResult Payment()
         {
-
+            List<Item> cart = SessionHelper.getObjectFromJson<List<Item>>(HttpContext.Session, "cart");
+            ViewBag.count = cart.Count();
+            ViewBag.cart = cart;
+            ViewBag.total = cart.Sum(item => item.Product.Price * item.Quantity);
+            var addr = _context.Addresses.FirstOrDefault();
+            ViewBag.address = addr;
             return View();
         }
     }

@@ -19,7 +19,6 @@ namespace coreCodeFirstApproachProject.Controllers
         {
             return RedirectToAction("Index", "Product");
         }
-        [Authorize]
         public IActionResult Privacy()
         {
             return View();
